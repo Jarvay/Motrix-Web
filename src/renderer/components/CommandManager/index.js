@@ -1,4 +1,4 @@
-import { EventEmitter } from 'node:events'
+import { EventEmitter } from '@/for-web/eventEmitter'
 
 export default class CommandManager extends EventEmitter {
   constructor () {

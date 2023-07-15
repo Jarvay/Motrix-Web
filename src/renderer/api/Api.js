@@ -10,7 +10,6 @@ import {
   changeKeysToCamelCase,
   changeKeysToKebabCase
 } from '@shared/utils'
-import { ENGINE_RPC_HOST } from '@shared/constants'
 
 export default class Api {
   constructor (options = {}) {
@@ -34,6 +33,7 @@ export default class Api {
 
   async loadConfigFromNativeStore () {
     const result = await ipcRenderer.invoke('get-app-config')
+    console.log('result', result)
     return result
   }
 
@@ -49,9 +49,9 @@ export default class Api {
   initClient () {
     const {
       rpcListenPort: port,
-      rpcSecret: secret
+      rpcSecret: secret,
+      rpcHost: host
     } = this.config
-    const host = ENGINE_RPC_HOST
     return new Aria2({
       host,
       port,

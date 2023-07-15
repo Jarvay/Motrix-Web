@@ -66,3 +66,5 @@ self.addEventListener('message', (event) => {
     logger(JSON.stringify(event.data))
   }
 })
+
+export {}

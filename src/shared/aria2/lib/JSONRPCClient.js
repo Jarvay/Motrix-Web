@@ -1,6 +1,6 @@
 'use strict'
 
-import { EventEmitter } from 'node:events'
+import { EventEmitter } from '@/for-web/eventEmitter'
 import _fetch from 'node-fetch'
 import _WebSocket from 'ws'
 import { JSONRPCError } from './JSONRPCError'
