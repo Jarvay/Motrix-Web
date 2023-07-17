@@ -11,6 +11,22 @@ config_file_path = config_dir + '/config.json'
 default_config_path = 'default-config.json'
 
 
+def success(data=None):
+    return {
+        'success': True,
+        'data': data
+    }
+
+
+def failed(message, disable_error_message=False):
+    return {
+        'success': False,
+        'data': None,
+        'message': message,
+        'disableErrorMessage': disable_error_message
+    }
+
+
 def check_config():
     if not os.path.exists(config_file_path):
         try:
@@ -37,7 +53,7 @@ def save_preference():
         json.dump(config, config_file, indent=4, ensure_ascii=False)
         config_file.close()
 
-    return {'success': True}
+    return success()
 
 
 @app.route('/api/preference', methods=['GET'])
@@ -49,7 +65,18 @@ def get_preference():
     config['rpc-listen-port'] = os.environ.get('RPC_PORT')
     config['rpc-host'] = os.environ.get('RPC_HOST')
     config['rpc-secret'] = os.environ.get('RPC_SECRET')
-    return config
+    return success(config)
+
+
+@app.route('/api/deleteFiles', methods=['POST'])
+def delete_files():
+    try:
+        for file in request.get_json()['files']:
+            os.remove(file)
+    except Exception as e:
+        return failed(str(e))
+
+    return success()
 
 
 if __name__ == '__main__':

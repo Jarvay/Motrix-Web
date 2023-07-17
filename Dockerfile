@@ -4,6 +4,9 @@ FROM node:16.18.0-slim AS builder
 
 RUN yarn cache clean
 
+RUN yarn config set registry https://registry.npm.taobao.org --global
+RUN yarn config set SASS_BINARY_SITE https://registry.npm.taobao.org/mirrors/node-sass/ --global
+
 WORKDIR /app
 
 COPY ./package.json ./

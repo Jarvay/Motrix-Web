@@ -145,7 +145,7 @@ module.exports = {
   devtool:
     process.env.NODE_ENV === 'development' ? 'eval-source-map' : 'source-map',
   devServer: {
-    open: true,
+    open: false,
     port: 8888,
     compress: true,
     hot: true,
