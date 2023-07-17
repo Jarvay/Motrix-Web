@@ -27,6 +27,7 @@
   "dependencies": {
     "eventemitter2": "^6.4.9",
     "node-fetch": "^2.6.1",
+    "utils": "file:./web_node_modules/utils",
     "ws": "^8.13.0"
   },
   "devDependencies": {

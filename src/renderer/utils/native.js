@@ -1,25 +1,24 @@
-import { nativeTheme } from '@electron/remote'
-
 import { APP_THEME } from '@shared/constants'
+import { notSupport } from 'utils'
 
 export const showItemInFolder = (fullPath, { errorMsg }) => {
-  //
+  notSupport()
 }
 
 export const openItem = async (fullPath) => {
-  //
+  notSupport()
 }
 
 export const getTaskFullPath = (task) => {
-  //
+  notSupport()
 }
 
 export const moveTaskFilesToTrash = (task) => {
-  //
+  notSupport()
 }
 
 export const getSystemTheme = () => {
-  return nativeTheme.shouldUseDarkColors ? APP_THEME.DARK : APP_THEME.LIGHT
+  return APP_THEME.LIGHT
 }
 
 export const delayDeleteTaskFiles = (task, delay) => {
