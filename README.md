@@ -45,6 +45,8 @@ services:
       - RPC_SECRET=123456
     volumes:
       - ./motrix-config:/app/config
+      # You need to mount the same directory as aria2[-pro], otherwise the function of deleting files will not work
+      - /mnt:/downloads
 ```
 
 ```shell

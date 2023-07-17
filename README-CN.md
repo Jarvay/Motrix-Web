@@ -45,6 +45,8 @@ services:
       - RPC_SECRET=123456
     volumes:
       - ./motrix-config:/app/config
+      # 需要挂载与aria2[-pro]相同的目录，否则删除文件的功能不生效
+      - /mnt:/downloads
 ```
 
 ```shell
