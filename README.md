@@ -8,6 +8,7 @@
 
 ## [Motrix](https://github.com/agalwood/Motrix) web version
 
+English | [简体中文](./README-CN.md)
 
 ## Usage
 `docker-compose.yml`
@@ -38,11 +39,7 @@ services:
     image: jarvay/motrix-web
     restart: always
     ports:
-      - 5000:5000
-    environment:
-      - RPC_PORT=6800
-      - RPC_HOST=192.168.10.10
-      - RPC_SECRET=123456
+      - "5000:5000"
     volumes:
       - ./motrix-config:/app/config
       # You need to mount the same directory as aria2[-pro], otherwise the function of deleting files will not work

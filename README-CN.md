@@ -8,6 +8,7 @@
 
 ## [Motrix](https://github.com/agalwood/Motrix)的网页版
 
+[English](./README.md) | 简体中文
 
 ## 使用方法
 `docker-compose.yml`
@@ -38,11 +39,7 @@ services:
     image: jarvay/motrix-web
     restart: always
     ports:
-      - 5000:5000
-    environment:
-      - RPC_PORT=6800
-      - RPC_HOST=192.168.10.10
-      - RPC_SECRET=123456
+      - "5000:5000"
     volumes:
       - ./motrix-config:/app/config
       # 需要挂载与aria2[-pro]相同的目录，否则删除文件的功能不生效
