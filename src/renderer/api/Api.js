@@ -33,7 +33,6 @@ export default class Api {
 
   async loadConfigFromNativeStore () {
     const result = await ipcRenderer.invoke('get-app-config')
-    console.log('result', result)
     return result
   }
 
@@ -76,10 +75,10 @@ export default class Api {
     })
   }
 
-  savePreference (params = {}) {
+  async savePreference (params = {}) {
     const kebabParams = changeKeysToKebabCase(params)
     if (is.renderer()) {
-      return this.savePreferenceToNativeStore(kebabParams)
+      return await this.savePreferenceToNativeStore(kebabParams)
     } else {
       return this.savePreferenceToLocalStorage(kebabParams)
     }
@@ -89,7 +88,7 @@ export default class Api {
     // TODO
   }
 
-  savePreferenceToNativeStore (params = {}) {
+  async savePreferenceToNativeStore (params = {}) {
     const { user, system, others } = separateConfig(params)
     const config = {}
 
@@ -108,7 +107,7 @@ export default class Api {
       console.info('[Motrix] save config found illegal key: ', others)
     }
 
-    ipcRenderer.send('command', 'application:save-preference', config)
+    await ipcRenderer.send('command', 'application:save-preference', config)
   }
 
   getVersion () {

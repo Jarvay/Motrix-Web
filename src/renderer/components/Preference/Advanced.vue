@@ -222,6 +222,22 @@
               :md="10"
               :lg="10"
             >
+              RPC Host
+              <el-input
+                placeholder="RPC Host"
+                v-model="form.rpcHost"
+              >
+              </el-input>
+            </el-col>
+          </el-row>
+          <el-row style="margin-bottom: 8px;">
+            <el-col
+              class="form-item-sub"
+              :xs="24"
+              :sm="18"
+              :md="10"
+              :lg="10"
+            >
               {{ $t('preferences.rpc-listen-port') }}
               <el-input
                 :placeholder="rpcDefaultPort"
@@ -472,6 +488,7 @@
   import '@/components/Icons/refresh'
   import { getLanguage } from '@shared/locales'
   import { getLocaleManager } from '@/components/Locale'
+  import api from '@/api'
 
   const initForm = (config) => {
     const {
@@ -487,6 +504,7 @@
       logLevel,
       protocols,
       proxy,
+      rpcHost,
       rpcListenPort,
       rpcSecret,
       trackerSource,
@@ -506,6 +524,7 @@
       logLevel,
       proxy: cloneDeep(proxy),
       protocols: { ...protocols },
+      rpcHost,
       rpcListenPort,
       rpcSecret,
       trackerSource,
@@ -756,11 +775,17 @@
 
           console.log('[Motrix] preference changed data:', data)
 
+          const keys = Object.keys(data)
+          const needToReInit = keys.some(key => key.toLowerCase().includes('rpc'))
+
           this.$store.dispatch('preference/save', data)
             .then(() => {
               this.$store.dispatch('app/fetchEngineOptions')
               this.syncFormConfig()
               this.$msg.success(this.$t('preferences.save-success-message'))
+              if (needToReInit) {
+                api.init()
+              }
             })
             .catch((e) => {
               this.$msg.success(this.$t('preferences.save-fail-message'))

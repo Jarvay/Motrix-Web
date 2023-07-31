@@ -36,14 +36,14 @@ const actions = {
         })
     })
   },
-  save ({ dispatch }, config) {
+  async save ({ dispatch }, config) {
     dispatch('task/saveSession', null, { root: true })
     if (isEmpty(config)) {
       return
     }
 
     dispatch('updatePreference', config)
-    return api.savePreference(config)
+    return await api.savePreference(config)
   },
   recordHistoryDirectory ({ state, dispatch }, directory) {
     const { historyDirectories = [], favoriteDirectories = [] } = state.config

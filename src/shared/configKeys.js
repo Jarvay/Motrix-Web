@@ -138,6 +138,7 @@ const systemKeys = [
   'remove-control-file',
   'retry-wait',
   'reuse-uri',
+  'rpc-host',
   'rpc-listen-port',
   'rpc-save-upload-metadata',
   'rpc-secret',

@@ -62,9 +62,6 @@ def get_preference():
         config = json.load(config_file)
         config_file.close()
 
-    config['rpc-listen-port'] = os.environ.get('RPC_PORT')
-    config['rpc-host'] = os.environ.get('RPC_HOST')
-    config['rpc-secret'] = os.environ.get('RPC_SECRET')
     return success(config)
 
 
@@ -81,4 +78,4 @@ def delete_files():
 
 if __name__ == '__main__':
     check_config()
-    app.run(debug=False, host="0.0.0.0")
+    app.run(debug=os.environ.get('DEBUG') or False, host="0.0.0.0")
