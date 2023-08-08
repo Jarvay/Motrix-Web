@@ -78,7 +78,6 @@
     "engine-path": "",
     "aria2-bin-path": "",
     "aria2-conf-path": "",
-  ,
     "rpc-host": "127.0.0.1",
     "rpc-listen-port": "16800",
     "rpc-secret": ""
