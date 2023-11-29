@@ -1,11 +1,9 @@
-ARG use_mirrors
-
-FROM node:16.18.0-slim AS builder
+FROM node:16.20.0-slim AS builder
 
 RUN yarn cache clean
 
-RUN yarn config set registry https://registry.npm.taobao.org --global
-RUN yarn config set SASS_BINARY_SITE https://registry.npm.taobao.org/mirrors/node-sass/ --global
+RUN yarn config set registry https://npmreg.proxy.ustclug.org/ --global
+RUN yarn config set SASS_BINARY_SITE https://npmreg.proxy.ustclug.org/mirrors/node-sass/ --global
 
 WORKDIR /app
 

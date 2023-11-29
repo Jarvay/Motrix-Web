@@ -69,7 +69,10 @@ def get_preference():
 def delete_files():
     try:
         for file in request.get_json()['files']:
-            os.remove(file)
+            if os.path.isdir(file):
+                shutil.rmtree(file)
+            else:
+                os.remove(file)
     except Exception as e:
         return failed(str(e))
 

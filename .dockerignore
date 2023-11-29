@@ -5,7 +5,6 @@ Dockerfile
 run
 logs
 yarn-error.log
-dist
 build
 .electron-vue
 .github
