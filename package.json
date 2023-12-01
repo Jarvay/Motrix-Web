@@ -18,7 +18,7 @@
     "lint": "eslint --ext .js,.vue -f ./node_modules/eslint-friendly-formatter src",
     "lint:fix": "eslint --ext .js,.vue -f ./node_modules/eslint-friendly-formatter --fix src",
     "postinstall": "npm run lint:fix",
-    "dev": "cross-env NODE_ENV=development webpack serve",
+    "dev": "cross-env NODE_ENV=development webpack serve --config ./webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.js"
   },
   "engines": {
@@ -74,8 +74,9 @@
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "2.7.5",
     "node-loader": "^2.0.0",
+    "node-polyfill-webpack-plugin": "^2.0.1",
     "normalize.css": "^8.0.1",
-    "parse-torrent": "file:./web_node_modules/parse-torrent",
+    "parse-torrent": "^10.0.2",
     "randomatic": "^3.1.1",
     "sass": "1.62.1",
     "sass-loader": "^12.6.0",

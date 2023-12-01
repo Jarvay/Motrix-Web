@@ -2,6 +2,7 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Webpack = require('webpack')
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin-webpack5')
 
@@ -130,17 +131,17 @@ module.exports = {
       Vue: ['vue/dist/vue.esm.js', 'default']
     }),
     new Webpack.DefinePlugin({
-      // 'process.env.NODE_ENV': JSON.stringify('production')
-    })
+    }),
+    new NodePolyfillPlugin()
   ],
   resolve: {
     extensions: ['.json', '.js', '.vue', '.css'],
-    plugins: [],
     alias: {
       '@': path.join(__dirname, './src/renderer'),
       '@shared': path.join(__dirname, './src/shared'),
       vue$: 'vue/dist/vue.esm.js'
-    }
+    },
+    plugins: []
   },
   devtool:
     process.env.NODE_ENV === 'development' ? 'eval-source-map' : 'source-map',
