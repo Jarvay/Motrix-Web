@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Webpack = require('webpack')
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin-webpack5')
 
@@ -132,7 +133,15 @@ module.exports = {
     }),
     new Webpack.DefinePlugin({
     }),
-    new NodePolyfillPlugin()
+    new NodePolyfillPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, './static/favicon.ico'),
+          to: path.resolve(__dirname, './dist/static/favicon.ico')
+        }
+      ]
+    })
   ],
   resolve: {
     extensions: ['.json', '.js', '.vue', '.css'],
