@@ -1,14 +1,15 @@
 # Motrix-Web
+<a href="https://hub.docker.com/r/jarvay/motrix-web">
+  <img src="https://img.shields.io/docker/pulls/jarvay/motrix-web?color=%2348BB78&logo=docker&label=pulls" alt="Downloads" />
+</a>
 
-<p>
-  <a href="https://motrix.app">
-    <img src="./static/512x512.png" width="256" alt="Motrix App Icon" />
-  </a>
-</p>
+[English](./README.md) | 简体中文
 
 ## [Motrix](https://github.com/agalwood/Motrix)的网页版
 
-[English](./README.md) | 简体中文
+<a href="https://motrix.app">
+    <img src="./static/512x512.png" width="64" alt="Motrix App Icon" />
+</a>
 
 ## 使用方法
 `docker-compose.yml`
