@@ -39,6 +39,8 @@ services:
     container_name: motrix-web
     image: jarvay/motrix-web
     restart: always
+    environment:
+      - WEB_UI_PORT=5000
     ports:
       - "5000:5000"
     volumes:
