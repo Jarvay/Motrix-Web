@@ -81,4 +81,4 @@ def delete_files():
 
 if __name__ == '__main__':
     check_config()
-    app.run(debug=os.environ.get('DEBUG') or False, host="0.0.0.0")
+    app.run(debug=os.environ.get('DEBUG') or False, host="0.0.0.0", port=os.environ.get('WEB_UI_PORT') or 5000)
