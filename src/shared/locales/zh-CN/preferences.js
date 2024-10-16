@@ -65,6 +65,7 @@ export default {
   'security': '安全性',
   'rpc': 'RPC',
   'rpc-listen-port': 'RPC 监听端口',
+  'rpc-secure': '启用 RPC 安全连接',
   'rpc-secret': 'RPC 授权密钥',
   'rpc-secret-tips': '查看说明文档',
   'developer': '开发者',

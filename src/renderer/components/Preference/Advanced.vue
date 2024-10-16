@@ -278,6 +278,21 @@
               </div>
             </el-col>
           </el-row>
+          <el-row style="margin-bottom: 8px;">
+            <el-col
+              class="form-item-sub"
+              :xs="24"
+              :sm="18"
+              :md="12"
+              :lg="12"
+            >
+              <el-switch
+                v-model="form.rpcSecure"
+                :active-text="$t('preferences.rpc-secure')"
+                >
+              </el-switch>
+            </el-col>
+          </el-row>
         </el-form-item>
         <el-form-item
           :label="`${$t('preferences.port')}: `"
@@ -506,6 +521,7 @@
       proxy,
       rpcHost,
       rpcListenPort,
+      rpcSecure,
       rpcSecret,
       trackerSource,
       useProxy,
@@ -526,6 +542,7 @@
       protocols: { ...protocols },
       rpcHost,
       rpcListenPort,
+      rpcSecure,
       rpcSecret,
       trackerSource,
       useProxy,
