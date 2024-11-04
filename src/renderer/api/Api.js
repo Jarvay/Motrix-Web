@@ -49,12 +49,14 @@ export default class Api {
     const {
       rpcListenPort: port,
       rpcSecret: secret,
-      rpcHost: host
+      rpcHost: host,
+      rpcSecure: secure,
     } = this.config
     return new Aria2({
       host,
       port,
-      secret
+      secret,
+      secure,
     })
   }
 

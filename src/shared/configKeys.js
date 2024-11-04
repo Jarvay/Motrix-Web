@@ -142,6 +142,7 @@ const systemKeys = [
   'rpc-listen-port',
   'rpc-save-upload-metadata',
   'rpc-secret',
+  'rpc-secure',
   'seed-ratio',
   'seed-time',
   'select-file',
