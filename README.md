@@ -44,6 +44,9 @@ services:
     restart: always
     environment:
       - WEB_UI_PORT=5000
+      - DEFAULT_RPC_HOST=192.168.10.20
+      - DEFAULT_RPC_PORT=6800
+      - DEFAULT_RPC_SECRET=123456
     ports:
       - "5000:5000"
     volumes:
